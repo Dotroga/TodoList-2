@@ -4,6 +4,7 @@
   list-style: none;
   outline: none;
   font-family: 'Roboto', sans-serif;
+  user-select: none;
 }
 
 .todo {
@@ -26,6 +27,36 @@
     border-top-left-radius: 10px;
     padding: 60px 20px;
     font-size: 15px;
+  }
+
+  .button {
+    background: #00c87b;
+    border-radius: 5px;
+    color: #fff;
+    border: 0;
+    padding: 9px 20px;
+    cursor: pointer;
+
+    &:hover {
+      background: darken(#00c87b, 6%);
+      transition: all 0.1ms ease-in;
+    }
+    &:active {
+      background: darken(#00c87b, 10%);
+    }
+  }
+
+  .field {
+    background: #ffffff;
+    border: 1px solid #efefef;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 8px 12px;
+    width: 100%;
+
+    &:focus {
+      border-color: #d7d7d7;
+    }
   }
 }
 

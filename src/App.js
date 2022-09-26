@@ -1,7 +1,8 @@
 import React from "react"
-import state from "./state";
-import List from "./components/List/List";
+import store from "./store";
+import MenuList from "./components/MenuList";
 import './App.scss'
+
 
 
 
@@ -9,9 +10,7 @@ const App = () => {
   return (
       <div className='todo'>
           <div className='todo_sidebar'>
-              <List items={state.allItems}/>
-              <List items={state.items}/>
-              <List items={state.addItems}/>
+              <MenuList state={store.state}/>
               <div className='todo_tasks'>
               </div>
           </div>

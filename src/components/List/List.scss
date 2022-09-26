@@ -1,6 +1,7 @@
 .list {
     margin-bottom: 25px;
     li {
+        height: 18px;
         display: flex;
         align-items: center;
         padding: 8px 12px;
@@ -19,24 +20,12 @@
     }
     img {
         height: 18px;
-        margin-right: 10px;
-    }
-    .badge {
-        width: 10px;
-        height: 10px;
-        border-radius: 5px;
-        margin-right: 26px;
         position: relative;
-        left: 4px;
-        &_green {
-            background-color: #00ca99;
-        }
-        &_blue {
-            background-color: #2d9efe;
-        }
-        &_purple {
-            background-color: #9800cb;
-        }
+        right: 4px;
+    }
+    span {
+        position: absolute;
+        margin-left: 25px;
     }
 }
 
