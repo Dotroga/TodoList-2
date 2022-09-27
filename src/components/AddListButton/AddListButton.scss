@@ -1,12 +1,23 @@
-.add_list {
-
+.add_list {position: relative;
   &_popup {
     width: 240px;
     background: #ffffff;
     box-shadow: 1px 2px 20px #c9c5c5;
     border-radius: 10px;
     padding: 18px;
+    &_close {
+      cursor: pointer;
+      width: 23px;
+      height: 30px;
+      position: absolute;
+      top: 49px;
+      right: -85px;
+      opacity: 0.6;
+      &:hover {
+        opacity: 0.85;
+      }
 
+    }
     .button {
       width: 100%;
       margin-top: 15px;

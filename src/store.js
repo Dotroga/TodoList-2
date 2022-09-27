@@ -8,8 +8,9 @@ const store = {
         ],
         items: [
             {id: 1, name: 'Фронтенд', color: 'blue', active: false},
-            {id: 2, name: 'Английский', color: 'purple', active: true},
-            {id: 3, name: 'Покупки', color: 'green', active: false},
+            {id: 2, name: 'Проекты', color: 'purple', active: true},
+            {id: 3, name: 'Английский', color: 'green', active: false},
+            {id: 4, name: 'Покупки', color: 'red', active: false},
         ],
         addItems: [{
             id: 777,

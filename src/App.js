@@ -3,9 +3,6 @@ import store from "./store";
 import MenuList from "./components/MenuList";
 import './App.scss'
 
-
-
-
 const App = () => {
   return (
       <div className='todo'>
