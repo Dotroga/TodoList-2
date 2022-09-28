@@ -1,13 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import List from "./List/List";
 import AddListButton from "./AddListButton/AddListButton";
 
 const MenuList = ({state}) => {
+    const [items,  setItems] = useState(state.items)
+    const onAddList = () => {
+
+    }
     return(
         <div>
             <List items={state.allItems}/>
-            <List items={state.items}/>
-            <AddListButton state={state}/>
+            <List items={items} setItems={setItems}/>
+            <AddListButton items={items} state={state} setItems={setItems}/>
         </div>)
 }
 

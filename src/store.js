@@ -8,7 +8,7 @@ const store = {
         ],
         items: [
             {id: 1, name: 'Фронтенд', color: 'blue', active: false},
-            {id: 2, name: 'Проекты', color: 'purple', active: true},
+            {id: 2, name: 'Проекты', color: 'purple', active: false},
             {id: 3, name: 'Английский', color: 'green', active: false},
             {id: 4, name: 'Покупки', color: 'red', active: false},
         ],
