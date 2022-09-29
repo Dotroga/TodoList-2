@@ -1,4 +1,10 @@
 .list {
+    $self: &;
+    &_remove {
+        left: 150px;
+        opacity: 0;
+        transition: all 0.2s ease-in;
+    }
     margin-bottom: 25px;
     li {
         height: 18px;
@@ -12,6 +18,13 @@
             box-shadow: 0px 3px 10px #e7e7e7;
             border-radius: 5px;
             transition: all 0.1s ease-in;
+            #{$self}_remove {
+                transition: all 0.1s ease-in;
+                opacity: 0.2;
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
         }
         &.active {
             background-color: #ffffff;
@@ -31,9 +44,11 @@
         position: relative;
         right: 4px;
     }
+
     span {
         position: absolute;
         margin-left: 25px;
     }
+
 }
 
