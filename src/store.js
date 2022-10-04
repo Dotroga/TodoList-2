@@ -7,10 +7,10 @@ const store = {
             {id: 0, name: 'Все задачи', img: Menu, active: false, className: ''}
         ],
         items: [
-            {id: 1, name: 'Фронтенд', color: 'blue', active: false},
-            {id: 2, name: 'Проекты', color: 'purple', active: false},
-            {id: 3, name: 'Английский', color: 'green', active: false},
-            {id: 4, name: 'Покупки', color: 'red', active: false},
+            {id: 1, name: 'Фронтенд', colorId: 3, active: false},
+            {id: 2, name: 'Проекты', colorId: 6, active: false},
+            {id: 3, name: 'Английский', colorId: 2, active: false},
+            {id: 4, name: 'Покупки', colorId: 8, active: false},
         ],
         addItems: [{
             id: 777,
