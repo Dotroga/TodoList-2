@@ -4,6 +4,8 @@ import MenuList from "./components/MenuList";
 import TasksList from "./components/TasksList/TasksList";
 import './App.scss'
 import store from "./store";
+import db from './../src/db.json'
+
 const App = () => {
 
     useEffect(() => {
@@ -15,7 +17,10 @@ const App = () => {
   return (
       <div className='todo'>
           <div className='todo_sidebar'>
-              <MenuList  state={store.state}/>
+              <MenuList
+                  state={store.state}
+                  db={db}
+              />
           </div>
           <div className='todo_tasks'>
               <TasksList/>

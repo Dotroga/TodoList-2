@@ -1,19 +1,22 @@
 import React, {useState} from "react";
 import List from "./List/List";
 import AddListButton from "./AddListButton/AddListButton";
+import axios from "axios";
 
-const MenuList = ({state}) => {
-    const [items,  setItems] = useState(state.items.map(it => {
-        it.color = state.colors.filter(color => color.id === it.colorId)[0].name
+const MenuList = ({state, db}) => {
+    const [items,  setItems] = useState(db.lists.map(it => {
+        it.color = db.colors.filter(color => color.id === it.colorId)[0].name
         return it
     }))
-    const onRemove = (i) => {
-        let newItems = [...items].filter(it => it !== i )
+    const onRemove = (id) => {
+        let newItems = [...items].filter(it => it.id !== id )
         return setItems(newItems)
     }
     const removeList = (i) => {
         if (window.confirm('Вы действительно хотите удалить этот список?')) {
-            onRemove(i)
+            axios.delete('http://localhost:3001/lists/' + i.id).then(() => {
+                onRemove(i.id)
+            })
         }
     }
 
@@ -21,7 +24,7 @@ const MenuList = ({state}) => {
         <div>
             <List items={state.allItems} />
             <List
-                items={items}
+                items={db.lists}
                 setItems={setItems}
                 removeList={removeList}
                 isRemovable/>

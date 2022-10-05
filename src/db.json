@@ -7,47 +7,47 @@
       "active": false
     },
     {
-      "id": 2,
-      "name": "Проекты",
-      "colorId": 6,
-      "active": false
-    },
-    {
-      "id": 3,
-      "name": "Английский",
+      "name": "React",
       "colorId": 2,
-      "active": false
+      "active": false,
+      "id": 2
     },
     {
-      "id": 4,
+      "name": "Английский",
+      "colorId": 7,
+      "active": false,
+      "id": 3
+    },
+    {
       "name": "Покупки",
-      "colorId": 8,
-      "active": false
+      "colorId": 4,
+      "active": false,
+      "id": 4
     }
   ],
   "tasks": [
     {
       "id": 1,
-      "listId": 2,
-      "text": "Изучить JavaScript",
-      "completed": true
+      "listId": 1,
+      "text": "Изучить JS",
+      "completed": false
     },
     {
       "id": 2,
-      "listId": 2,
-      "text": "Изучить паттерны проектирования",
+      "listId": 1,
+      "text": "Изучить патерны проектирования",
       "completed": false
     },
     {
       "id": 3,
-      "listId": 2,
-      "text": "ReactJS Hooks (useState, useReducer, useEffect и т.д.)",
-      "completed": true
+      "listId": 1,
+      "text": "React Hooks (useState, useEffect, useReducer, и т.д.)",
+      "completed": false
     },
     {
       "id": 4,
-      "listId": 2,
-      "text": "Redux (redux-observable, redux-saga)",
+      "listId": 3,
+      "text": "Продолжить!",
       "completed": false
     }
   ],

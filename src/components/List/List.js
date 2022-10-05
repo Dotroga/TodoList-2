@@ -6,6 +6,7 @@ import './List.scss'
 
 
 const List = ({items, isRemovable , onClick, removeList}) => {
+
     return (
         <div onClick={onClick} className='list'>
             {items.map(i => (

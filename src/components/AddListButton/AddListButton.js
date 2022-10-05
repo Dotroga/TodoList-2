@@ -7,29 +7,41 @@ import closeButton from './../../Img/closeButton.svg'
 
 const AddListButton = ({state, items, setItems}) => {
     const [visiblePopup, setVisiblePopup] = useState(false)
-    const [selectedColor, selectColor] = useState(state.colors[0].id)
+    const [selectedColor, selectColor] = useState(null)
     const [inputValue, setInputValue] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
     const addList = () => {
         if (!inputValue) {
             alert('Введите название списка')
         } else {
-            return onAdd({id: items.length + 1, name: inputValue, color: selectedColor, active: false})
+            // return onAdd({id: items.length + 1, name: inputValue, color: selectedColor, active: false})
+            setIsLoading(true)
+            axios
+                .post('http://localhost:3001/lists', {
+                    name: inputValue,
+                    colorId: selectedColor,
+                    active: false
+                })
+                .then(({data}) => {
+                    onAdd(data)
+                    setVisiblePopup(false)
+                })
+                .finally(() => {
+                    setIsLoading(false)
+                })
         }
     }
-    // useEffect(()=>{
-    //     // selectColor(state.colors[0].name)
-    // }, [state.colors])
-    // axios
-    //     .post('http://localhost:3001/lists', {name: inputValue, colorId: selectedColor})
-    //     .then(({data}) => {
-    //         console.log(data)
-    // })
+    useEffect(()=>{
+        if (Array.isArray(state.colors)) {
+            selectColor(state.colors[0].id)
+        }
+    }, [state.colors])
     const onAdd = (obj) => {
         const newItems = [...items, obj]
         setItems(newItems)
         setInputValue('')
-        setVisiblePopup(false)
         selectColor(state.colors[0].id)
+
     }
     const closePopup = () => {
         setInputValue('')
@@ -63,7 +75,9 @@ const AddListButton = ({state, items, setItems}) => {
                                 className={selectedColor === color.id && 'active'}
                             />))}
                 </div>
-                <button onClick={addList} className='button' >Добавить</button>
+                <button onClick={addList} className='button' >
+                    {isLoading ? 'Добавление..' : 'Добавить'}
+                </button>
             </div>}
         </div>)
 }
