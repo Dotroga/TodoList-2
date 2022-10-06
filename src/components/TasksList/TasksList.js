@@ -2,7 +2,7 @@ import React from "react";
 import './TasksList.scss'
 import Edit from './../../Img/edit.svg'
 
-const TasksList = () => {
+const TasksList = ({lists}) => {
     return (
         <div className='tasks'>
             <h2 className='tasks_title'>

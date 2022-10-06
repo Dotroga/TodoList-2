@@ -3,11 +3,7 @@ import List from "./List/List";
 import AddListButton from "./AddListButton/AddListButton";
 import axios from "axios";
 
-const MenuList = ({state, db}) => {
-    const [items,  setItems] = useState(db.lists.map(it => {
-        it.color = db.colors.filter(color => color.id === it.colorId)[0].name
-        return it
-    }))
+const MenuList = ({items, state, setItems,}) => {
     const onRemove = (id) => {
         let newItems = [...items].filter(it => it.id !== id )
         return setItems(newItems)
@@ -19,12 +15,11 @@ const MenuList = ({state, db}) => {
             })
         }
     }
-
     return(
         <div>
             <List items={state.allItems} />
             <List
-                items={db.lists}
+                items={items}
                 setItems={setItems}
                 removeList={removeList}
                 isRemovable/>
