@@ -5,7 +5,7 @@ import Badge from "../Badge/Badge";
 import './AddListButton.scss'
 import closeButton from './../../Img/closeButton.svg'
 
-const AddListButton = ({state, items, setItems}) => {
+const AddListButton = ({state, lists, setLists}) => {
     const [visiblePopup, setVisiblePopup] = useState(false)
     const [selectedColor, selectColor] = useState(null)
     const [inputValue, setInputValue] = useState('')
@@ -14,7 +14,6 @@ const AddListButton = ({state, items, setItems}) => {
         if (!inputValue) {
             alert('Введите название списка')
         } else {
-            // return onAdd({id: items.length + 1, name: inputValue, color: selectedColor, active: false})
             setIsLoading(true)
             axios
                 .post('http://localhost:3001/lists', {
@@ -22,27 +21,29 @@ const AddListButton = ({state, items, setItems}) => {
                     colorId: selectedColor,
                     active: false
                 })
-                .then(({data}) => {
-                    onAdd(data)
-                    setVisiblePopup(false)
-                })
+                .then(({ data }) => {
+                const color = state.colors.filter(c => c.id === selectedColor)[0]
+                const listObj = { ...data, color, tasks: [] }
+                onAddList(listObj)
+            })
                 .finally(() => {
+                    setInputValue('')
+                    selectColor(state.colors[0].id)
+                    setVisiblePopup(false)
                     setIsLoading(false)
                 })
         }
     }
+    const onAddList = obj => {
+        const newList = [...lists, obj];
+        setLists(newList);
+    };
     useEffect(()=>{
         if (Array.isArray(state.colors)) {
             selectColor(state.colors[0].id)
         }
     }, [state.colors])
-    const onAdd = (obj) => {
-        const newItems = [...items, obj]
-        setItems(newItems)
-        setInputValue('')
-        selectColor(state.colors[0].id)
 
-    }
     const closePopup = () => {
         setInputValue('')
         setVisiblePopup(false)
@@ -50,7 +51,7 @@ const AddListButton = ({state, items, setItems}) => {
     }
     return(<div className='add_list'>
             <List
-                items={state.addItems}
+                lists={state.addlists}
                 onClick={()=>setVisiblePopup(!visiblePopup)}
             />
         {visiblePopup &&

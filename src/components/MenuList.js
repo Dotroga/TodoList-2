@@ -3,10 +3,10 @@ import List from "./List/List";
 import AddListButton from "./AddListButton/AddListButton";
 import axios from "axios";
 
-const MenuList = ({items, state, setItems,}) => {
+const MenuList = ({lists, state, setLists,}) => {
     const onRemove = (id) => {
-        let newItems = [...items].filter(it => it.id !== id )
-        return setItems(newItems)
+        let newLists = [...lists].filter(it => it.id !== id )
+        return setLists(newLists)
     }
     const removeList = (i) => {
         if (window.confirm('Вы действительно хотите удалить этот список?')) {
@@ -17,16 +17,16 @@ const MenuList = ({items, state, setItems,}) => {
     }
     return(
         <div>
-            <List items={state.allItems} />
+            <List lists={state.alllists} />
             <List
-                items={items}
-                setItems={setItems}
+                lists={lists}
+                setLists={setLists}
                 removeList={removeList}
                 isRemovable/>
             <AddListButton
-                items={items}
+                lists={lists}
                 state={state}
-                setItems={setItems}/>
+                setLists={setLists}/>
         </div>)
 }
 

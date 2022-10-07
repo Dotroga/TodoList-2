@@ -5,10 +5,10 @@ import removeSVG from './../../Img/remove.svg'
 import './List.scss'
 
 
-const List = ({items, isRemovable , onClick, removeList}) => {
+const List = ({lists, isRemovable , onClick, removeList}) => {
     return (
         <div onClick={onClick} className='list'>
-            {items.map(i => (
+            {lists.map(i => (
                 <li className={classNames(classNames(i.className, {'active': i.active}))} key={i.id}>
                     {i.img
                         ? <img src={i.img} alt=""/>
