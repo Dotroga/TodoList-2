@@ -30,6 +30,7 @@ const App = () => {
           <div className='todo_tasks'>
               {lists && activeList && <TasksList
                   list={activeList}
+                  setActiveList={setActiveList}
               />}
           </div>
       </div>)
