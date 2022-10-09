@@ -47,7 +47,11 @@
 
     span {
         position: absolute;
-        margin-left: 25px;
+        margin-left: 22px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 140px;
+        white-space: nowrap;
     }
 
 }

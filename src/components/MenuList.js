@@ -3,7 +3,7 @@ import List from "./List/List";
 import AddListButton from "./AddListButton/AddListButton";
 import axios from "axios";
 
-const MenuList = ({lists, state, setLists,}) => {
+const MenuList = ({lists, state, setLists, onClickList, activeList}) => {
     const onRemove = (id) => {
         let newLists = [...lists].filter(it => it.id !== id )
         return setLists(newLists)
@@ -21,6 +21,8 @@ const MenuList = ({lists, state, setLists,}) => {
             <List
                 lists={lists}
                 setLists={setLists}
+                onClickList={onClickList}
+                activeList={activeList}
                 removeList={removeList}
                 isRemovable/>
             <AddListButton

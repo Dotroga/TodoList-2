@@ -19,7 +19,7 @@ const AddListButton = ({state, lists, setLists}) => {
                 .post('http://localhost:3001/lists', {
                     name: inputValue,
                     colorId: selectedColor,
-                    active: false
+                    tasks: []
                 })
                 .then(({ data }) => {
                 const color = state.colors.filter(c => c.id === selectedColor)[0]

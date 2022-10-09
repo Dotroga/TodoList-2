@@ -4,25 +4,31 @@
       "id": 1,
       "name": "Фронтенд",
       "colorId": 3,
-      "active": false
+      "tasks": []
     },
     {
       "name": "React",
       "colorId": 2,
-      "active": false,
-      "id": 2
+      "id": 2,
+      "tasks": []
     },
     {
       "name": "Английский",
       "colorId": 7,
-      "active": false,
-      "id": 3
+      "id": 3,
+      "tasks": []
     },
     {
       "name": "Покупки",
       "colorId": 4,
-      "active": false,
-      "id": 4
+      "id": 4,
+      "tasks": []
+    },
+    {
+      "name": "Другое",
+      "colorId": 6,
+      "tasks": [],
+      "id": 5
     }
   ],
   "tasks": [

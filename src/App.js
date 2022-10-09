@@ -7,6 +7,7 @@ import store from "./store";
 
 const App = () => {
     const [lists,  setLists] = useState(null)
+    const [activeList, setActiveList] = useState(null)
     useEffect(() => {
         axios
             .get('http://localhost:3001/lists?_expand=color&_embed=tasks')
@@ -14,18 +15,21 @@ const App = () => {
                 setLists(data)
         })
     }, [])
+    console.log(activeList)
   return (
       <div className='todo'>
           <div className='todo_sidebar'>
               {lists && <MenuList
+                  onClickList={i => {setActiveList(i)}}
+                  activeList={activeList}
                   state={store.state}
                   lists={lists}
                   setLists={setLists}
               />}
           </div>
           <div className='todo_tasks'>
-              {lists && <TasksList
-                  list={lists[0]}
+              {lists && activeList && <TasksList
+                  list={activeList}
               />}
           </div>
       </div>)
