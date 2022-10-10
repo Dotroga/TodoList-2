@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import List from './../List/List'
-import Badge from "../Badge/Badge";
+import List from '../List/List'
+import Badge from "../../Badge/Badge";
 import './AddListButton.scss'
-import closeButton from './../../Img/closeButton.svg'
+import closeButton from '../../../Img/closeButton.svg'
 
 const AddListButton = ({state, lists, setLists}) => {
     const [visiblePopup, setVisiblePopup] = useState(false)

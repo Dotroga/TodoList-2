@@ -35,16 +35,32 @@
 }
 
 .button {
+  font-size: 14px;
   background: #00c87b;
   border-radius: 5px;
   color: #fff;
   border: 0;
   padding: 9px 20px;
   cursor: pointer;
+ &_grey {
+   font-size: 14px;
+   background: #e5e5e5;
+   border-radius: 5px;
+   color: #252525;
+   border: 0;
+   padding: 9px 20px;
+   cursor: pointer;
+   &:hover {
+     background: darken(#e5e5e5, 6%);
+   }
+   &:active {
+     background: darken(#e5e5e5, 10%);
+   }
+ }
+
 
   &:hover {
     background: darken(#00c87b, 6%);
-    transition: all 0.1ms ease-in;
   }
   &:active {
     background: darken(#00c87b, 10%);

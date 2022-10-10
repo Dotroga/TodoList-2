@@ -3,6 +3,7 @@
     line-height: 39px;
     padding-bottom: 20px;
     border-bottom: 1px solid #eeeded;
+
     h2 {
       font-family: 'Montserrat', sans-serif;
       font-weight: bold;
@@ -15,10 +16,12 @@
       font-weight: bold;
       font-size: 32px;
       padding: 0px;
+
     }
     &:hover {
       img {
         opacity: 0.2;
+        transition: all 0.1s ease-in;
       }
     }
     img {
@@ -26,8 +29,10 @@
       margin-left: 20px;
       opacity: 0;
       cursor: pointer;
+      transition: all 0.1s ease-in;
       &:hover {
         opacity: 0.6;
+        transition: all 0.1s ease-in;
       }
     }
     &_grey {

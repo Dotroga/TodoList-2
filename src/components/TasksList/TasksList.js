@@ -1,14 +1,15 @@
 import React, {useState} from "react";
-import Task from "./Task/Task";
-import './TasksList.scss'
-import Edit from './../../Img/edit.svg'
 import classNames from "classnames";
 import axios from "axios";
+import Task from "./Task/Task";
+import AddTask from "./AddTask/AddTask";
+import Edit from './../../Img/edit.svg'
+import './TasksList.scss'
 
 
-const TasksList = ({list, setActiveList}) => {
+const TasksList = ({list, setActiveList, onEditListTitle}) => {
     const [edit, setEdit] = useState(null)
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState(null)
 
 const editTitle = (id, name) => {
     setEdit(id)
@@ -17,6 +18,7 @@ const editTitle = (id, name) => {
     const save = e => {
         if (e.key === 'Enter') {
             e.preventDefault()
+            onEditListTitle(edit, value)
             list.name = value
             setActiveList(list)
             setEdit(null)
@@ -39,6 +41,7 @@ const editTitle = (id, name) => {
                     </h2>}
             </div>
             <Task list={list}/>
+            <AddTask/>
         </div>);
 }
 

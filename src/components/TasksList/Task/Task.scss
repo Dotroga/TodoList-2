@@ -19,6 +19,7 @@
     display: none;
   }
   label {
+    transition: all 0.2s ease-in;
     display: flex;
     border: 2px solid #ecebec;
     border-radius: 30px;
@@ -28,12 +29,15 @@
     align-items: center;
     justify-content: center;
     &:hover {
+      transition: all 0.2s ease-in;
       background-color: #ecebec;;
       svg {
+        transition: all 0.2s ease-in;
         opacity: 0.6;
       }
     }
     svg {
+      transition: all 0.2s ease-in;
       opacity: 0;
     }
   }
