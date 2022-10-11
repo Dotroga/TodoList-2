@@ -26,6 +26,16 @@ const App = () => {
         })
         setLists(newList)
     }
+
+    const onAddTask = (listId ,taskObj) => {
+        const newList = lists.map(i => {
+            if (i.id === listId) {
+                i.tasks = [...i.tasks, taskObj]
+            }
+            return i
+        })
+        setLists(newList)
+    }
   return (
       <div className='todo'>
           <div className='todo_sidebar'>
@@ -41,6 +51,7 @@ const App = () => {
               {lists && activeList && <TasksList
                   list={activeList}
                   setActiveList={setActiveList}
+                  onAddTask={onAddTask}
                   onEditListTitle={onEditListTitle}
               />}
           </div>

@@ -7,7 +7,7 @@ import Edit from './../../Img/edit.svg'
 import './TasksList.scss'
 
 
-const TasksList = ({list, setActiveList, onEditListTitle}) => {
+const TasksList = ({list, setActiveList, onEditListTitle, onAddTask}) => {
     const [edit, setEdit] = useState(null)
     const [value, setValue] = useState(null)
 
@@ -41,7 +41,7 @@ const editTitle = (id, name) => {
                     </h2>}
             </div>
             <Task list={list}/>
-            <AddTask/>
+            <AddTask onAddTask={onAddTask} list={list}/>
         </div>);
 }
 
