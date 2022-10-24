@@ -2,10 +2,10 @@ import React from "react";
 import './Task.scss'
 
 
-const Task = ({list}) => {
+const Task = ({list, withoutEmpty}) => {
     return (
             <div className='lists'>
-                {!list.tasks.length && <h2>Задачи отсутствуют</h2>}
+                {!withoutEmpty && !list.tasks.length && <h2>Задачи отсутствуют</h2>}
                 {list.tasks.map(t =>
                     <div key={t.id} className='tasks_lists_row' >
                         <div className='checkbox'>

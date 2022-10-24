@@ -4,6 +4,7 @@ import MenuList from "./components/MenuList/MenuList";
 import TasksList from "./components/TasksList/TasksList";
 import './App.scss'
 import store from "./store";
+import {Route, Routes} from "react-router-dom";
 
 const App = () => {
     const [lists,  setLists] = useState(null)
@@ -48,12 +49,26 @@ const App = () => {
               />}
           </div>
           <div className='todo_tasks'>
-              {lists && activeList && <TasksList
-                  list={activeList}
-                  setActiveList={setActiveList}
-                  onAddTask={onAddTask}
-                  onEditListTitle={onEditListTitle}
-              />}
+              <Routes>
+                  <Route exact path='/' element={
+                      lists &&
+                      lists.map(list => ( <TasksList
+                          list={list}
+                          setActiveList={setActiveList}
+                          onAddTask={onAddTask}
+                          onEditListTitle={onEditListTitle}
+                          withoutEmpty
+                      />))
+                  }/>
+                <Route path='/lists/:id' element={
+                    lists && activeList && <TasksList
+                        list={activeList}
+                        setActiveList={setActiveList}
+                        onAddTask={onAddTask}
+                        onEditListTitle={onEditListTitle}
+                    />
+                }/>
+              </Routes>
           </div>
       </div>)
 }
