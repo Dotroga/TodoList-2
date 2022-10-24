@@ -17,7 +17,10 @@ const MenuList = ({lists, state, setLists, setActiveList, activeList}) => {
     }
     return(
         <div>
-            <List lists={state.alllists} />
+            <List lists={state.alllists}
+                  activeList={activeList}
+                  setActiveList={setActiveList}
+            />
             <List
                 lists={lists}
                 setLists={setLists}

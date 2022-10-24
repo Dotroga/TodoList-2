@@ -15,7 +15,6 @@ const App = () => {
             .then(({data}) => {
                 setLists(data)
         })
-        console.log(lists)
     }, [])
 
     const onEditListTitle = (id, name) => {
@@ -49,26 +48,29 @@ const App = () => {
               />}
           </div>
           <div className='todo_tasks'>
-              <Routes>
-                  <Route exact path='/' element={
-                      lists &&
-                      lists.map(list => ( <TasksList
-                          list={list}
-                          setActiveList={setActiveList}
-                          onAddTask={onAddTask}
-                          onEditListTitle={onEditListTitle}
-                          withoutEmpty
-                      />))
-                  }/>
-                <Route path='/lists/:id' element={
-                    lists && activeList && <TasksList
-                        list={activeList}
-                        setActiveList={setActiveList}
-                        onAddTask={onAddTask}
-                        onEditListTitle={onEditListTitle}
-                    />
-                }/>
-              </Routes>
+              {lists && activeList &&
+                  <Routes>
+                      <Route exact path='/0' element={
+                          lists &&
+                          lists.map(list => ( <TasksList
+                              key={list.id}
+                              list={list}
+                              setActiveList={setActiveList}
+                              onAddTask={onAddTask}
+                              onEditListTitle={onEditListTitle}
+                              withoutEmpty
+                          />))}
+                      />
+                      <Route path={`/${activeList.id}`} element={
+                          <TasksList
+                              list={activeList}
+                              setActiveList={setActiveList}
+                              onAddTask={onAddTask}
+                              onEditListTitle={onEditListTitle}
+                          />}
+                      />
+                  </Routes>
+              }
           </div>
       </div>)
 }
