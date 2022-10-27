@@ -13,7 +13,7 @@ const List = ({lists, isRemovable , onClick, removeList, setActiveList, activeLi
                 <NavLink to={`/${i.id}`} key={i.id}>
                     <li className={classNames(classNames(i.className, {
                         'active': activeList && activeList.id === i.id}))}
-                         onClick={() =>  setActiveList && setActiveList(i)}>
+                         onClick={() =>  setActiveList &&  setActiveList(i)}>
                         {i.img
                             ? <img src={i.img} alt=""/>
                             : <Badge color={i.color.name}/>}

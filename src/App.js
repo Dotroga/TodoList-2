@@ -16,26 +16,6 @@ const App = () => {
                 setLists(data)
         })
     }, [])
-
-    const onEditListTitle = (id, name) => {
-        const newList = lists.map(i => {
-            if (i.id === id) {
-                i.name = name
-            }
-            return i
-        })
-        setLists(newList)
-    }
-
-    const onAddTask = (listId ,taskObj) => {
-        const newList = lists.map(i => {
-            if (i.id === listId) {
-                i.tasks = [...i.tasks, taskObj]
-            }
-            return i
-        })
-        setLists(newList)
-    }
   return (
       <div className='todo'>
           <div className='todo_sidebar'>
@@ -50,14 +30,14 @@ const App = () => {
           <div className='todo_tasks'>
               {lists && activeList &&
                   <Routes>
-                      <Route exact path='/0' element={
+                      <Route exact path='/' element={
                           lists &&
                           lists.map(list => ( <TasksList
                               key={list.id}
                               list={list}
+                              lists={lists}
                               setActiveList={setActiveList}
-                              onAddTask={onAddTask}
-                              onEditListTitle={onEditListTitle}
+                              setLists={setLists}
                               withoutEmpty
                           />))}
                       />
@@ -65,8 +45,8 @@ const App = () => {
                           <TasksList
                               list={activeList}
                               setActiveList={setActiveList}
-                              onAddTask={onAddTask}
-                              onEditListTitle={onEditListTitle}
+                              lists={lists}
+                              setLists={setLists}
                           />}
                       />
                   </Routes>

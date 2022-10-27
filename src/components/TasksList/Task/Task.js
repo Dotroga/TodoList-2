@@ -1,8 +1,9 @@
 import React from "react";
 import './Task.scss'
+import removeSVG from '../../../Img/remove.svg'
+import edit from './../../../Img/edit.svg'
 
-
-const Task = ({list, withoutEmpty}) => {
+const Task = ({list, withoutEmpty, onRemove, onEdit}) => {
     return (
             <div className='lists'>
                 {!withoutEmpty && !list.tasks.length && <h2>Задачи отсутствуют</h2>}
@@ -18,6 +19,13 @@ const Task = ({list, withoutEmpty}) => {
                                 </svg>
                             </label>
                             <p>{t.text}</p>
+                                <img src={removeSVG}
+                                     alt='remove'
+                                     onClick={() => onRemove(t.id, list.id)}
+                                     className='checkbox_remove'/>
+                                <img src={edit}
+                                     alt=""
+                                     className='checkbox_edit'/>
                         </div>
                     </div>)}
             </div>)

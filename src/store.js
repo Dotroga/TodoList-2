@@ -4,7 +4,7 @@ import Plus from './Img/plus.svg'
 const store = {
     state: {
         alllists: [
-            {id: 0, name: 'Все задачи', img: Menu, active: false, className: ''}
+            {id: '', name: 'Все задачи', img: Menu, active: false, className: ''}
         ],
         addlists: [{
             id: 777,

@@ -1,4 +1,5 @@
 .lists {
+
   margin-top: 20px;
   h2 {
     font-family: 'Montserrat', sans-serif;
@@ -14,9 +15,36 @@
   }
 }
 .checkbox {
+  $self: &;
   display: flex;
+  &:hover {
+    #{$self}_edit {
+      transition: all 0.1s ease-in;
+      opacity: 0.2;
+      height: 16px;
+      &:hover {
+        opacity: 0.8;
+        height: 16px;
+      }
+    }
+      #{$self}_remove {
+        transition: all 0.1s ease-in;
+        opacity: 0.2;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
   input {
     display: none;
+  }
+  &_edit {
+    height: 16px;
+    opacity: 0;
+  }
+  &_remove {
+    height: 20px;
+    opacity: 0;
   }
   label {
     transition: all 0.2s ease-in;

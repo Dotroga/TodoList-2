@@ -7,7 +7,7 @@ import Edit from './../../Img/edit.svg'
 import './TasksList.scss'
 
 
-const TasksList = ({list, setActiveList, onEditListTitle, onAddTask, withoutEmpty}) => {
+const TasksList = ({list, setActiveList, lists, setLists, withoutEmpty}) => {
     const [edit, setEdit] = useState(null)
     const [value, setValue] = useState(null)
 
@@ -27,6 +27,39 @@ const editTitle = (id, name) => {
             })
         }
     }
+
+    const onEditListTitle = (id, name) => {
+        const newList = lists.map(i => {
+            if (i.id === id) {
+                i.name = name
+            }
+            return i
+        })
+        setLists(newList)
+    }
+
+    const onAddTask = (listId ,taskObj) => {
+        const newList = lists.map(i => {
+            if (i.id === listId) {
+                i.tasks = [...i.tasks, taskObj]
+            }
+            return i
+        })
+        setLists(newList)
+    }
+
+    const onRemoveTask = (taskId, listId) => {
+        if (window.confirm('Вы действительно хотите удалить задачу ?')) {
+            const newList = lists.map(i => {
+                if (i.id === listId) {
+                    i.tasks = i.tasks.filter(t => taskId !== t.id)
+                }
+                return i
+            })
+            setLists(newList)
+            axios.delete('http://localhost:3001/tasks/' + taskId)
+        }
+    }
     return (
         <div className='tasks'>
             <div className={classNames('tasks_title', `tasks_title_${list.color.name}`)}>
@@ -40,7 +73,7 @@ const editTitle = (id, name) => {
                         <img onClick={() => editTitle(list.id, list.name)} src={Edit} alt="Редактировать"/>
                     </h2>}
             </div>
-            <Task list={list} withoutEmpty={withoutEmpty}/>
+            <Task list={list} withoutEmpty={withoutEmpty} onRemove={onRemoveTask}/>
             <AddTask onAddTask={onAddTask} list={list}/>
         </div>);
 }
