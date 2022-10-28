@@ -64,6 +64,7 @@ const onEdit = (id, name) => {
             </div>
             <Task
                 list={list}
+                setList={setActiveList}
                 lists={lists}
                 setLists={setLists}
                 withoutEmpty={withoutEmpty}
