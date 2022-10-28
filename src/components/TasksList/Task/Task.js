@@ -29,19 +29,23 @@ const Task = ({list, setList, lists, setLists, withoutEmpty, }) => {
         if (e.key === 'Enter') {
             e.preventDefault()
             onEditTask(edit, value)
-            setEdit(null)
         }
     }
-    const onEditTask = (id, text) => {
+
+
+
+    const onEditTask = (edit, value) => {
         const newTask = list.tasks.map(i => {
-            if (id === i.id) {
-                i.text = text
+            if (edit === i.id) {
+                i.text = value
             }
             return i
         })
         list.tasks = newTask
-        console.log(newTask)
-        console.log(list)
+        setEdit(null)
+        axios.patch('http://localhost:3001/tasks/' + edit,{
+            text: value
+        })
     }
     const closeEdit = () => {
         setEdit(null)
@@ -58,7 +62,8 @@ const Task = ({list, setList, lists, setLists, withoutEmpty, }) => {
                                         value={value}
                                         onChange={(e) => setValue(e.target.value)}
                                         onKeyPress={saveTask}/>
-                                    <button className='button' >
+                                    <button className='button'
+                                            onClick={() => onEditTask(edit, value)}>
                                         Сохранить
                                     </button>
                                     <button className='button_grey'
