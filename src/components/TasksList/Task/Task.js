@@ -7,6 +7,7 @@ import axios from "axios";
 const Task = ({list, setList, lists, setLists, withoutEmpty, }) => {
     const [edit, setEdit] = useState(null)
     const [value, setValue] = useState(null)
+    const [id, setId] = useState(null)
 
     const onEdit = (id, name) => {
         setEdit(id)
@@ -32,8 +33,6 @@ const Task = ({list, setList, lists, setLists, withoutEmpty, }) => {
         }
     }
 
-
-
     const onEditTask = (edit, value) => {
         const newTask = list.tasks.map(i => {
             if (edit === i.id) {
@@ -49,6 +48,21 @@ const Task = ({list, setList, lists, setLists, withoutEmpty, }) => {
     }
     const closeEdit = () => {
         setEdit(null)
+    }
+
+    const onChange = (e, id) => {
+        const newTask = list.tasks.map(i => {
+            if (id === i.id) {
+                i.completed = e.target.checked
+                setId(id)
+            }
+            return i
+        })
+        list.tasks = newTask
+        setEdit(null)
+        axios.patch('http://localhost:3001/tasks/' + id,{
+            completed: e.target.checked
+        })
     }
 
     return (
@@ -73,7 +87,15 @@ const Task = ({list, setList, lists, setLists, withoutEmpty, }) => {
                                 </div>
                             :   <div className='lists_row_normal'>
                                     <div className='lists_row_normal_checkbox'>
-                                        <input className='lists_row_normal_checkbox_done' id={`task-${t.id}`} type='checkbox'/>
+                                        <input
+                                            className='lists_row_normal_checkbox_done'
+                                            id={`task-${t.id}`}
+                                            type='checkbox'
+                                            checked={t.completed === true}
+                                            onChange={(e) => {
+                                                onChange(e, t.id)
+                                            }}
+                                            />
                                         <label htmlFor={`task-${t.id}`}>
                                             <svg width="12px" height="12px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path

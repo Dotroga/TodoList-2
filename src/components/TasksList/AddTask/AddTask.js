@@ -21,6 +21,12 @@ const AddTask = ({list, onAddTask}) => {
                 onAddTask(list.id, data)
                 toggleFormVisible()})
     }
+    const saveTask = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault()
+            addTask()
+        }
+    }
 
   return(
       <div className='addTask'>
@@ -33,9 +39,11 @@ const AddTask = ({list, onAddTask}) => {
                   <input
                       value={inputValue}
                       onChange={e => setInputValue(e.target.value)}
+                      onKeyPress={saveTask}
                       className='field'
                       type="text"
                       placeholder='Название задачи'/>
+
                   <button
                       className='button'
                       onClick={addTask}

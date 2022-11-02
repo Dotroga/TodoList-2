@@ -25,22 +25,16 @@
       "tasks": []
     },
     {
-      "name": "Другое",
-      "colorId": 6,
+      "name": "Test 123 ",
+      "colorId": 8,
       "tasks": [],
       "id": 5
     },
     {
-      "name": "Семья",
-      "colorId": 4,
+      "name": "Test 2",
+      "colorId": 1,
       "tasks": [],
       "id": 6
-    },
-    {
-      "name": "какашки Есении",
-      "colorId": 7,
-      "tasks": [],
-      "id": 7
     }
   ],
   "tasks": [
@@ -63,12 +57,6 @@
       "completed": false
     },
     {
-      "listId": 6,
-      "text": "Поцеловать Жену!",
-      "completed": false,
-      "id": 15
-    },
-    {
       "listId": 4,
       "text": "Купить жене на зиму пуховик!",
       "completed": false,
@@ -87,40 +75,28 @@
       "id": 41
     },
     {
-      "listId": 5,
-      "text": "rthrth",
-      "completed": false,
-      "id": 42
-    },
-    {
-      "listId": 5,
-      "text": "rhthrth",
-      "completed": false,
-      "id": 43
-    },
-    {
-      "listId": 5,
-      "text": "4534jsejhed",
-      "completed": false,
-      "id": 44
-    },
-    {
-      "listId": 5,
-      "text": "test123",
-      "completed": false,
-      "id": 45
-    },
-    {
-      "listId": 7,
-      "text": "Посмотреть памперс на наличие какашек!",
-      "completed": false,
-      "id": 48
-    },
-    {
       "listId": 2,
-      "text": "Это просто ооооочееень длинный тестовый текст для проверки  правильности работы  поля ввода, \"инпута\"  так что блаблаблаблаблаблаба балаблабалабл балабалабалба блаблаблаблабла балаблабалабла бла бла бла бла всё.",
+      "text": "Это просто ооооочееень длинный тестовый текст для проверки  правильности работы  поля ввода, \"инпута\"  так что блаблаблабла балаблабалабла бла бла бла бла всё.",
       "completed": false,
       "id": 49
+    },
+    {
+      "listId": 5,
+      "text": "Записать видео и моём первом приложении ",
+      "completed": false,
+      "id": 52
+    },
+    {
+      "listId": 6,
+      "text": "бла  бла б ла",
+      "completed": false,
+      "id": 53
+    },
+    {
+      "listId": 6,
+      "text": "Бла бл бла",
+      "completed": true,
+      "id": 54
     }
   ],
   "colors": [
