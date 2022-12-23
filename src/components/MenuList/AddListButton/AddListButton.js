@@ -50,10 +50,9 @@ const AddListButton = ({state, lists, setLists}) => {
         selectColor(state.colors[0].id)
     }
     return(<div className='add_list'>
-            <List
-                lists={state.addlists}
-                onClick={()=>setVisiblePopup(!visiblePopup)}
-            />
+            <div onClick={()=>setVisiblePopup(!visiblePopup)}>
+                Добавить
+            </div>
         {visiblePopup &&
             <div className='add_list_popup'>
                 <img

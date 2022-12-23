@@ -35,6 +35,12 @@
       "colorId": 1,
       "tasks": [],
       "id": 6
+    },
+    {
+      "name": "Обучение ",
+      "colorId": 3,
+      "tasks": [],
+      "id": 7
     }
   ],
   "tasks": [
@@ -65,7 +71,7 @@
     {
       "listId": 4,
       "text": "И сапоги",
-      "completed": false,
+      "completed": true,
       "id": 40
     },
     {
@@ -97,6 +103,12 @@
       "text": "Бла бл бла",
       "completed": true,
       "id": 54
+    },
+    {
+      "listId": 7,
+      "text": "Попасть в ИТ Инкубатор !",
+      "completed": false,
+      "id": 55
     }
   ],
   "colors": [
