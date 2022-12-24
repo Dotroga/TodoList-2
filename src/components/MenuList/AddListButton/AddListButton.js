@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import List from '../List/List'
 import Badge from "../../Badge/Badge";
 import './AddListButton.scss'
 import closeButton from '../../../Img/closeButton.svg'
+import plus from '../../../Img/plus.svg'
 
 const AddListButton = ({state, lists, setLists}) => {
     const [visiblePopup, setVisiblePopup] = useState(false)
@@ -49,9 +49,15 @@ const AddListButton = ({state, lists, setLists}) => {
         setVisiblePopup(false)
         selectColor(state.colors[0].id)
     }
+
     return(<div className='add_list'>
-            <div onClick={()=>setVisiblePopup(!visiblePopup)}>
-                Добавить
+            <div className='add_list_button'
+                onClick={()=>setVisiblePopup(!visiblePopup)}>
+                <img
+                    className='add_list_button_plus'
+                    src={plus}
+                    alt=""/>
+                Добавить список
             </div>
         {visiblePopup &&
             <div className='add_list_popup'>

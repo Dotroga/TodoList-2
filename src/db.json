@@ -31,12 +31,6 @@
       "id": 5
     },
     {
-      "name": "Test 2",
-      "colorId": 1,
-      "tasks": [],
-      "id": 6
-    },
-    {
       "name": "Обучение ",
       "colorId": 3,
       "tasks": [],
@@ -91,18 +85,6 @@
       "text": "Записать видео и моём первом приложении ",
       "completed": false,
       "id": 52
-    },
-    {
-      "listId": 6,
-      "text": "бла  бла б ла",
-      "completed": false,
-      "id": 53
-    },
-    {
-      "listId": 6,
-      "text": "Бла бл бла",
-      "completed": true,
-      "id": 54
     },
     {
       "listId": 7,

@@ -1,6 +1,28 @@
 .add_list {
-  position: relative;
+  &_button {
+    display: flex;
+    align-items: center;
+    opacity: 0.2;
+    transition: all 0.3s ease-in;
+    &_plus {
+      margin: 0px 6px;
+      width: 20px;
+      cursor: pointer;
+    }
+    &:hover {
+      opacity: 0.6;
+      transition: all 0.3s ease-in;
+    }
+    &:active {
+      opacity: 1;
+    }
+
+  }
+
   &_popup {
+    position: relative;
+    left: -38px;
+    bottom: -30px;
     width: 240px;
     background: #ffffff;
     box-shadow: 1px 2px 20px #c9c5c5;
@@ -12,8 +34,8 @@
       width: 23px;
       height: 30px;
       position: absolute;
-      top: 49px;
-      right: -85px;
+      top: -8px;
+      right: -8px;
       opacity: 0.6;
       &:hover {
         opacity: 0.85;
