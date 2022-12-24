@@ -52,6 +52,7 @@
    cursor: pointer;
    &:hover {
      background: darken(#e5e5e5, 6%);
+     transform: scale(1.04);
    }
    &:active {
      background: darken(#e5e5e5, 10%);
@@ -61,6 +62,7 @@
 
   &:hover {
     background: darken(#00c87b, 6%);
+    transform: scale(1.04);
   }
   &:active {
     background: darken(#00c87b, 10%);

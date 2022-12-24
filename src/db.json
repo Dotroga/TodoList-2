@@ -65,7 +65,7 @@
     {
       "listId": 4,
       "text": "И сапоги",
-      "completed": true,
+      "completed": false,
       "id": 40
     },
     {
