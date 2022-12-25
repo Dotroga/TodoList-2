@@ -31,7 +31,8 @@ const MenuList = ({lists, state, setLists, setActiveList, activeList}) => {
             <AddListButton
                 lists={lists}
                 state={state}
-                setLists={setLists}/>
+                setLists={setLists}
+                setActiveList={setActiveList}/>
         </div>)
 }
 

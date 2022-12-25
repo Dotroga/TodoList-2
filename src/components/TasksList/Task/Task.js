@@ -63,6 +63,7 @@ const Task = ({list, setList, lists, setLists, withoutEmpty, }) => {
         axios.patch('http://localhost:3001/tasks/' + id,{
             completed: e.target.checked
         })
+
     }
 
     return (

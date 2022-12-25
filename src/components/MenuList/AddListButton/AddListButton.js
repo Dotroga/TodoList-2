@@ -5,7 +5,7 @@ import './AddListButton.scss'
 import closeButton from '../../../Img/closeButton.svg'
 import plus from '../../../Img/plus.svg'
 
-const AddListButton = ({state, lists, setLists}) => {
+const AddListButton = ({state, lists, setLists, setActiveList}) => {
     const [visiblePopup, setVisiblePopup] = useState(false)
     const [selectedColor, selectColor] = useState(null)
     const [inputValue, setInputValue] = useState('')
@@ -32,11 +32,13 @@ const AddListButton = ({state, lists, setLists}) => {
                     setVisiblePopup(false)
                     setIsLoading(false)
                 })
+
         }
     }
     const onAddList = obj => {
         const newList = [...lists, obj];
-        setLists(newList);
+        setLists(newList)
+        setActiveList(obj);
     };
     useEffect(()=>{
         if (Array.isArray(state.colors)) {

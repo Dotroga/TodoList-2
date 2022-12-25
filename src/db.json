@@ -42,19 +42,13 @@
       "id": 2,
       "listId": 1,
       "text": "Изучить патерны проектирования",
-      "completed": false
+      "completed": true
     },
     {
       "id": 3,
       "listId": 1,
       "text": "React Hooks (useState, useEffect, useReducer, и т.д.)",
-      "completed": false
-    },
-    {
-      "id": 4,
-      "listId": 3,
-      "text": "Продолжить!",
-      "completed": false
+      "completed": true
     },
     {
       "listId": 4,
@@ -71,13 +65,13 @@
     {
       "listId": 1,
       "text": "Продолжить курс React",
-      "completed": false,
+      "completed": true,
       "id": 41
     },
     {
       "listId": 2,
       "text": "Это просто ооооочееень длинный тестовый текст для проверки  правильности работы  поля ввода, \"инпута\"  так что блаблаблабла балаблабалабла бла бла бла бла всё.",
-      "completed": false,
+      "completed": true,
       "id": 49
     },
     {
