@@ -10,9 +10,10 @@ const AddListButton = ({state, lists, setLists, setActiveList}) => {
     const [selectedColor, selectColor] = useState(null)
     const [inputValue, setInputValue] = useState('')
     const [isLoading, setIsLoading] = useState(false)
+    const [emptyField, setEmptyField] = useState(false)
     const addList = () => {
         if (!inputValue) {
-            alert('Введите название списка')
+            setEmptyField(true)
         } else {
             setIsLoading(true)
             axios
@@ -51,7 +52,6 @@ const AddListButton = ({state, lists, setLists, setActiveList}) => {
         setVisiblePopup(false)
         selectColor(state.colors[0].id)
     }
-
     return(<div className='add_list'>
             <div className='add_list_button'
                 onClick={()=>setVisiblePopup(!visiblePopup)}>
@@ -68,10 +68,15 @@ const AddListButton = ({state, lists, setLists, setActiveList}) => {
                     src={closeButton}
                     alt="close"
                     className='add_list_popup_close'/>
+                {emptyField &&
+                <div className='add_list_popup_emptyField'>
+                    введи текст
+                </div>}
                 <input
                     className='field'
                     value={inputValue}
                     onChange={e => setInputValue(e.target.value)}
+                    onClick={() => setEmptyField(false)}
                     type="text"
                     placeholder='Название списка'/>
                 <div className="add_list_popup_colors">
